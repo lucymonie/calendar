@@ -1,16 +1,14 @@
 const calendar_months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const months_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const back = document.querySelector('.back');
-const next = document.querySelector('.next');
+const back = document.querySelector('.fa-caret-left');
+const next = document.querySelector('.fa-caret-right');
 
 let dateObj = {};
 console.log(dateObj);
 
 function makeCalendar() {
-  let calendar1 = document.querySelector('.calendar1');
-  let calendar2 = document.querySelector('.calendar2');
-  let calendar3 = document.querySelector('.calendar3');
+  let calendar = document.querySelector('.calendar');
   dateObj.htmlStr += `<thead><tr><th class="col">M</th><th class="col">T</th><th class="col">W</th><th class="col">T</th><th class="col">F</th><th class="col">S</th><th class="col">S</th></tr></thead><tbody class="table__body"><tr>`;
   for (i = 0; i < dateObj.emptyDays; i++) {
     dateObj.htmlStr += `<td class="col"></td>`
@@ -33,10 +31,8 @@ function makeCalendar() {
     dateObj.monStart = j;
   }
   dateObj.htmlStr += `</tbody></table>`;
-  if (dateObj.calendar === 'calendar1') calendar1.innerHTML = dateObj.htmlStr;
-  if (dateObj.calendar === 'calendar2') calendar2.innerHTML = dateObj.htmlStr;
-  if (dateObj.calendar === 'calendar3') calendar3.innerHTML = dateObj.htmlStr;
-}
+  calendar.innerHTML = dateObj.htmlStr;
+  }
 
 function buildCalendar() {
   let firstDay = new Date(dateObj.year, dateObj.month_1, 1).toString().split(' ')[0];
